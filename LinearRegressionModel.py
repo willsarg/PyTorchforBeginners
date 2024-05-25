@@ -1,21 +1,20 @@
 #This code is a ton of GPT, still learning/sifting through this.
-#Import the Main PyTorch Library
-import torch
 #Import the PyTorch Neural Network Library
-import torch.nn as nn
-#Import the PyTorch Optimizer Library (For Training the Model)
-import torch.optim as optim
-#Import the PyTorch Datasets Library
-from torchvision import datasets, transforms
+from torch import torch as torch, nn as nn, optim as optim
 #Import the PyTorch DataLoader Library
 from torch.utils.data import DataLoader
+#Import the PyTorch Datasets Library
+from torchvision import datasets, transforms
+
 #Code below here is un-edited
 
 # Define transformations for the training data
-transform = transforms.Compose([
+transform = transforms.Compose(
+    [
     transforms.ToTensor(),
     transforms.Normalize((0.5,), (0.5,))
-])
+    ]
+)
 
 # Load the training and test datasets
 train_dataset = datasets.MNIST(root='./data', train=True, download=True, transform=transform)
